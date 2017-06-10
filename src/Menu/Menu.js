@@ -6,7 +6,6 @@ import {
 	MenuItem,
 	NavItem
 } from 'react-bootstrap';
-import './Menu.css';
 
 class Menu extends Component {
 	render() {

@@ -6,41 +6,47 @@ import {
 	MenuItem,
 	NavItem
 } from 'react-bootstrap';
+import './Menu.css'
 
 class Menu extends Component {
+
+	onMenuSelect = (event) => {
+		this.props.onSelectMenu(event.target.id);
+	};
+
 	render() {
 		return (
 			<Navbar inverse collapseOnSelect>
 				<Navbar.Header>
 					<Navbar.Brand>
-						<a href="#">Súmula App</a>
+						<a onClick={this.onMenuSelect} id="home">Súmula App</a>
 					</Navbar.Brand>
 					<Navbar.Toggle />
 				</Navbar.Header>
 				<Navbar.Collapse>
 					<Nav>
-						<NavDropdown eventKey={1} title="Cadastros" id="menu-cadastros">
-							<MenuItem eventKey={1.1}>Pessoa</MenuItem>
-							<MenuItem eventKey={1.2}>Equipe</MenuItem>
-							<MenuItem eventKey={1.3}>Modalidade</MenuItem>
-							<MenuItem eventKey={1.4}>Liga</MenuItem>
-							<MenuItem eventKey={1.5}>Calendário</MenuItem>
-							<MenuItem eventKey={1.6}>Partida</MenuItem>
+						<NavDropdown title="Cadastros" id="menu-cadastros">
+							<MenuItem onClick={this.onMenuSelect} id="cadastro-pessoa">Pessoa</MenuItem>
+							<MenuItem onClick={this.onMenuSelect} id="cadastro-equipe">Equipe</MenuItem>
+							<MenuItem onClick={this.onMenuSelect} id="cadastro-modalidade">Modalidade</MenuItem>
+							<MenuItem onClick={this.onMenuSelect} id="cadastro-liga">Liga</MenuItem>
+							<MenuItem onClick={this.onMenuSelect} id="cadastro-calendario">Calendário</MenuItem>
+							<MenuItem onClick={this.onMenuSelect} id="cadastro-partida">Partida</MenuItem>
 							<MenuItem divider />
-							<MenuItem eventKey={1.7}>Súmula</MenuItem>
+							<MenuItem onClick={this.onMenuSelect} id="cadastro-sumula">Súmula</MenuItem>
 						</NavDropdown>
-						<NavDropdown eventKey={2} title="Operações" id="menu-operacoes">
-							<MenuItem eventKey={2.1}>Sorteio Liga</MenuItem>
-							<MenuItem eventKey={2.2}>Preencher Súmula</MenuItem>
+						<NavDropdown title="Operações" id="menu-operacoes">
+							<MenuItem onClick={this.onMenuSelect} id="operacao-sorteio">Sorteio Liga</MenuItem>
+							<MenuItem onClick={this.onMenuSelect} id="operacao-sumula">Preencher Súmula</MenuItem>
 						</NavDropdown>
-						<NavDropdown eventKey={3} title="Relatórios" id="menu-relatorios">
-							<MenuItem eventKey={3.1}>Súmula</MenuItem>
-							<MenuItem eventKey={3.2}>Artilheiro</MenuItem>
-							<MenuItem eventKey={3.2}>Tabela de Classificação</MenuItem>
+						<NavDropdown title="Relatórios" id="menu-relatorios">
+							<MenuItem onClick={this.onMenuSelect} id="relatorio-sumula">Súmula</MenuItem>
+							<MenuItem onClick={this.onMenuSelect} id="relatorio-artilheiro">Artilheiro</MenuItem>
+							<MenuItem onClick={this.onMenuSelect} id="relatorio-tabela">Tabela de Classificação</MenuItem>
 						</NavDropdown>
 					</Nav>
 					<Nav pullRight>
-						<NavItem eventKey={1}>Usuário</NavItem>
+						<NavItem>Usuário</NavItem>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>

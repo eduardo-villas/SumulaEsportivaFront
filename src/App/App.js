@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import './App.css'
 import Menu from './../Menu/Menu'
 import Home from './../Home/Home'
-import ListagemPessoa from './../Cadastro/Pessoa/ListagemPessoa';
+import PessoaMain from './../Cadastro/Pessoa/PessoaMain';
 import ListagemEquipe from './../Cadastro/Equipe/ListagemEquipe';
 import ListagemModalidade from './../Cadastro/Modalidade/ListagemModalidade';
 import ListagemLiga from './../Cadastro/Liga/ListagemLiga';
@@ -31,7 +32,7 @@ class App extends Component {
 		const selectedMenu = this.state.selectedMenu;
 		switch (selectedMenu) {
 			case 'cadastro-pessoa':
-				return <ListagemPessoa/>;
+				return <PessoaMain/>;
 			case 'cadastro-equipe':
 				return <ListagemEquipe/>
 			case 'cadastro-modalidade':
@@ -64,7 +65,9 @@ class App extends Component {
 		return (
 			<div>
 				<Menu onSelectMenu={this.onSelectMenu}/>
-				{currentMenu}
+				<div className="container main-container">
+					{currentMenu}
+				</div>
 			</div>
 		);
 	}

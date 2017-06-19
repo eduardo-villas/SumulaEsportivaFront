@@ -1,0 +1,11 @@
+.checkbox-column {
+	width: 20px;
+}
+
+.no-margin {
+	margin: 0 !important;
+}
+
+.control-bar {
+	margin-bottom: 10px;
+}

@@ -38,7 +38,7 @@ class PaginationControl extends Component {
 		}
 		let thisPage = this.props.page.number + 1;
 		return (
-			<div className="row control-bar">
+			<div className="row">
 				<div className="col-xs-12 pagination-control">
 
 					<Button onClick={this.firstPage} disabled={!this.props.links.prev}>

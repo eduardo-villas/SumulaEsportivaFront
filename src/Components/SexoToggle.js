@@ -3,6 +3,11 @@ import Toggle from 'react-toggle';
 import './css/SexoToggle.css'
 
 class SexoToggle extends Component {
+	constructor(props) {
+		super(props);
+		console.log(props);
+	}
+
 	render() {
 		return (
 			<Toggle 

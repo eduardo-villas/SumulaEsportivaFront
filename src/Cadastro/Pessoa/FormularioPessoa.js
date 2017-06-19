@@ -2,12 +2,30 @@ import React, { Component } from 'react';
 import {
 	FormGroup,
 	ControlLabel,
-	FormControl
+	FormControl,
+	Button
 } from 'react-bootstrap';
 import SexoToggle from './../../Components/SexoToggle';
 import './Pessoa.css';
 
 class FormularioPessoa extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			nome: '',
+			rg: '',
+			dataNascimento: '',
+			sexo: 'M',
+			email: '',
+			telefone: '',
+			endereco: ''
+		};
+	}
+
+	save = () => {
+		this.props.onTelaChange('listagem');
+	};
+
 	render() {
 		return (
 			<form>
@@ -17,6 +35,8 @@ class FormularioPessoa extends Component {
 							<ControlLabel>Nome</ControlLabel>
 							<FormControl
 								type="text"
+								value={this.state.nome}
+								onChange={(nome) => {this.setState({nome: nome.target.value});}}
 							/>
 						</FormGroup>
 					</div>
@@ -27,6 +47,8 @@ class FormularioPessoa extends Component {
 							<ControlLabel>RG</ControlLabel>
 							<FormControl
 								type="text"
+								value={this.state.rg}
+								onChange={(rg) => {this.setState({rg: rg.target.value});}}
 							/>
 						</FormGroup>
 					</div>
@@ -35,6 +57,8 @@ class FormularioPessoa extends Component {
 							<ControlLabel>Data de nascimento</ControlLabel>
 							<FormControl
 								type="date"
+								value={this.state.dataNascimento}
+								onChange={(dataNascimento) => {this.setState({dataNascimento: dataNascimento.target.value});}}
 							/>
 						</FormGroup>
 					</div>
@@ -42,7 +66,7 @@ class FormularioPessoa extends Component {
 						<FormGroup>
 							<ControlLabel>Sexo</ControlLabel>
 							<div>
-								<SexoToggle/>
+								<SexoToggle value={this.state.sexo}/>
 							</div>
 						</FormGroup>
 					</div>
@@ -73,6 +97,13 @@ class FormularioPessoa extends Component {
 								type="text"
 							/>
 						</FormGroup>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-xs-12">
+						<div className="pull-right">
+							<Button bsStyle="primary" onClick={this.save}>Salvar</Button>
+						</div>
 					</div>
 				</div>
 			</form>

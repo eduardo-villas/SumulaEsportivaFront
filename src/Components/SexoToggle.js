@@ -5,8 +5,15 @@ import './css/SexoToggle.css'
 class SexoToggle extends Component {
 	constructor(props) {
 		super(props);
-		console.log(props);
+		this.state = {
+			checked: props.value === 'M'
+		};
 	}
+
+	onChangeSexo = (sexo) => {
+		this.setState({ checked: sexo.target.checked });
+		this.props.onChange(sexo.target.checked);
+	};
 
 	render() {
 		return (
@@ -16,7 +23,8 @@ class SexoToggle extends Component {
 					checked: <span className="switch-sexo-item">Masculino</span>,
 					unchecked: <span className="switch-sexo-item">Feminino</span>
 				}}
-				defaultChecked={true}
+				checked={this.state.checked}
+				onChange={this.onChangeSexo}
 			/>
 		);
 	}

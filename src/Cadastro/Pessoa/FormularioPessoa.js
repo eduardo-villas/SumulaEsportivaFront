@@ -150,6 +150,7 @@ class FormularioPessoa extends Component {
 				<div className="row">
 					<div className="col-xs-12">
 						<div className="pull-right">
+							<Button bsStyle="default" className="btn-margin-right" onClick={() => {this.props.onTelaChange('listagem');}}>Cancelar</Button>
 							<Button bsStyle="primary" onClick={this.save}>Salvar</Button>
 						</div>
 					</div>

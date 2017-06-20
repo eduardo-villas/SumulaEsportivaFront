@@ -9,3 +9,11 @@
 .control-bar {
 	margin-bottom: 10px;
 }
+
+.selected-row {
+	background-color: #EDFCFF !important;
+}
+
+.btn-margin-right {
+	margin-right: 5px;
+}

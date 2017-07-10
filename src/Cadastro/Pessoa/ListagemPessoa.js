@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Service from './PessoaService';
 import LinhaListagemPessoa from './LinhaListagemPessoa';
 import PaginationControl from './../../Components/PaginationControl';
+import GenericList from './../../Components/GenericList';
 import './Pessoa.css'
 import { 
 	Button,
@@ -42,18 +43,7 @@ class ListagemPessoa extends Component {
 						</div>
 					</div>
 				</div>
-				<table className="table table-striped table-hover table-bordered">
-					<thead>
-						<tr>
-							<th className="checkbox-column"></th>
-							<th>Nome</th>
-							<th>RG</th>
-						</tr>
-					</thead>
-					<tbody>
-						{listagemRegistros}
-					</tbody>
-				</table>
+				<GenericList listagem={listagemRegistros} />
 				<PaginationControl page={this.state.registros.page} links={this.state.registros._links} onPageChange={this.setRegistros}/>
 			</div>
 		);

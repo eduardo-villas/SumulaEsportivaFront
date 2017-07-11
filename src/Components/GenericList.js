@@ -6,14 +6,10 @@ class GenericList extends Component {
 			<div>
 				<table className="table table-striped table-hover table-bordered">
 					<thead>
-						<tr>
-							<th className="checkbox-column"></th>
-							<th>Nome</th>
-							<th>RG</th>
-						</tr>
+						{this.props.header}
 					</thead>
 					<tbody>
-						{this.props.listagem}
+						{this.props.listagemRegistros}
 					</tbody>
 				</table>
 			</div>

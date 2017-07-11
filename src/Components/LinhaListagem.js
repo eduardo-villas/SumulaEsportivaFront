@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { 
 	Checkbox
 } from 'react-bootstrap';
+import './css/LinhaListagem.css';
 
 class LinhaListagem extends Component {
 	constructor(props) {

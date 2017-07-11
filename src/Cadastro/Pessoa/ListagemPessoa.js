@@ -3,6 +3,7 @@ import Service from './PessoaService';
 import LinhaListagemPessoa from './LinhaListagemPessoa';
 import PaginationControl from './../../Components/PaginationControl';
 import GenericList from './../../Components/GenericList';
+import HeaderPessoa from './HeaderPessoa';
 import './Pessoa.css'
 import { 
 	Button,
@@ -34,6 +35,7 @@ class ListagemPessoa extends Component {
 				return <LinhaListagemPessoa key={pessoa.id} pessoa={pessoa}/>;
 			});
 		}
+		let header = <HeaderPessoa/>;
 		return (
 			<div>
 				<div className="row control-bar">
@@ -43,7 +45,7 @@ class ListagemPessoa extends Component {
 						</div>
 					</div>
 				</div>
-				<GenericList listagem={listagemRegistros} />
+				<GenericList header={header} listagemRegistros={listagemRegistros}/>
 				<PaginationControl page={this.state.registros.page} links={this.state.registros._links} onPageChange={this.setRegistros}/>
 			</div>
 		);

@@ -33,7 +33,7 @@ class ListagemPessoa extends Component {
 	};
 
 	goToEditForm = () => {
-		this.props.onTelaChange('formulario', 1);
+		this.props.onTelaChange('formulario', this.state.registrosSelecionados[0]);
 	};
 
 	onRegistroSelect = (id) => {
@@ -56,6 +56,13 @@ class ListagemPessoa extends Component {
 		this.setState({ registrosSelecionados: selecionados });
 	};
 
+	removerRegistros = () => {
+		let service = new Service();
+		service.delete(this.state.registrosSelecionados[0]).then(() => {
+			service.getFirstPage().then(this.setRegistros);
+		});
+	};
+
 	render() {
 		let listagemRegistros = [];
 		if (this.state.registros._embedded){
@@ -69,6 +76,7 @@ class ListagemPessoa extends Component {
 				<div className="row control-bar">
 					<div className="col-xs-12">
 						<div className="pull-right">
+							<Button bsStyle="danger" className="btn-alterar" onClick={this.removerRegistros} disabled={this.state.registrosSelecionados.length !== 1}><Glyphicon glyph="trash" className="texted-right-icon"/>Remover</Button>
 							<Button bsStyle="info" className="btn-alterar" onClick={this.goToEditForm} disabled={this.state.registrosSelecionados.length !== 1}><Glyphicon glyph="pencil" className="texted-right-icon"/>Alterar</Button>
 							<Button bsStyle="primary" onClick={this.goToForm}><Glyphicon glyph="plus" className="texted-right-icon"/>Inserir</Button>
 						</div>

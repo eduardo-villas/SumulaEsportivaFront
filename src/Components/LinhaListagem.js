@@ -13,11 +13,23 @@ class LinhaListagem extends Component {
 	}
 
 	onChangeChecked = (checked) => {
-		this.setState({ checked: checked.target.checked });
+		let isChecked = checked.target.checked;
+		this.setState({ checked: isChecked });
+		this.notifyChange(isChecked);
 	};
 
-	onRowClick = () => {
-		this.setState({ checked: !this.state.checked });
+	onRowClick = (target, event) => {
+		let isChecked = !this.state.checked;
+		this.setState({ checked: isChecked });
+		this.notifyChange(isChecked);
+	};
+
+	notifyChange = (isChecked) => {
+		if (!isChecked) {
+			this.props.onRegistroDeselect();
+			return;
+		}
+		this.props.onRegistroSelect();
 	};
 
 	render() {

@@ -3,13 +3,6 @@ import Toggle from 'react-toggle';
 import './css/SexoToggle.css'
 
 class SexoToggle extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			checked: props.value === 'M'
-		};
-	}
-
 	onChangeSexo = (sexo) => {
 		this.setState({ checked: sexo.target.checked });
 		this.props.onChange(sexo.target.checked);
@@ -23,7 +16,7 @@ class SexoToggle extends Component {
 					checked: <span className="switch-sexo-item">Masculino</span>,
 					unchecked: <span className="switch-sexo-item">Feminino</span>
 				}}
-				checked={this.state.checked}
+				checked={this.props.value === 'M'}
 				onChange={this.onChangeSexo}
 			/>
 		);

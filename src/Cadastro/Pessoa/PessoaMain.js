@@ -10,14 +10,17 @@ class PessoaMain extends Component {
 		}
 	}
 
-	onTelaChange = (tela) => {
-		this.setState({ tela: tela });
+	onTelaChange = (tela, id) => {
+		this.setState({
+			tela: tela,
+			id: id
+		});
 	}
 
 	render() {
 		let tela = <ListagemPessoa onTelaChange={this.onTelaChange}/>;
 		if (this.state.tela === 'formulario') {
-			tela = <FormularioPessoa onTelaChange={this.onTelaChange}/>;
+			tela = <FormularioPessoa onTelaChange={this.onTelaChange} id={this.state.id}/>;
 		}
 		return (
 			<div>

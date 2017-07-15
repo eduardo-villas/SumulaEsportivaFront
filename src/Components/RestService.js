@@ -2,7 +2,7 @@ class RestService {
 
 	constructor(url) {
 		this.url = url;
-	}
+	};
 
 	getFirstPage() {
 		return fetch(this.url).then(
@@ -10,7 +10,7 @@ class RestService {
 				return response.json();
 			}
 		);
-	}
+	};
 
 	post(data) {
 		return fetch(this.url, {
@@ -23,6 +23,14 @@ class RestService {
 		}).then((response) => {
 			return response.json();
 		});
+	};
+
+	getById(id) {
+		return fetch(this.url + '/' + id).then(
+			(response) => {
+				return response.json();
+			}
+		);
 	}
 }
 

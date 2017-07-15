@@ -23,7 +23,25 @@ class FormularioPessoa extends Component {
 			endereco: '',
 			emailValido: true
 		};
+		if (props.id) {
+			let service = new PessoaService();
+			service.getById(props.id).then(this.setPessoa);
+		}
 	}
+
+	setPessoa = (pessoa) => {
+		this.setState({
+			id: pessoa.id,
+			nome: pessoa.nome,
+			rg: pessoa.rg,
+			dataNascimento: pessoa.dataNascimento,
+			sexo: pessoa.sexo,
+			email: pessoa.email,
+			telefone: pessoa.telefone,
+			endereco: pessoa.endereco,
+			emailValido: true
+		});
+	};
 
 	save = () => {
 		if (this.cadastroValido()){

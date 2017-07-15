@@ -134,7 +134,7 @@ class FormularioPessoa extends Component {
 						<FormGroup validationState={this.state.emailValido ? null : 'error'}>
 							<ControlLabel>E-mail</ControlLabel>
 							<FormControl
-								type="text"
+								type="email"
 								value={this.state.email}
 								onChange={this.onChangeEmail}
 							/>
@@ -146,7 +146,7 @@ class FormularioPessoa extends Component {
 						<FormGroup>
 							<ControlLabel>Telefone</ControlLabel>
 							<FormControl
-								type="text"
+								type="tel"
 								value={this.state.telefone}
 								onChange={(telefone) => {this.setState({ telefone: telefone.target.value });}}
 							/>

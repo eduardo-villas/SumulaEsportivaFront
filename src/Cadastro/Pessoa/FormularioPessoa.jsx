@@ -6,8 +6,8 @@ import {
 	Button,
 	HelpBlock
 } from 'react-bootstrap';
-import SexoToggle from './../../Components/SexoToggle';
-import PessoaService from './PessoaService';
+import SexoToggle from './../../Components/SexoToggle.jsx';
+import PessoaService from './PessoaService.jsx';
 import './Pessoa.css';
 
 class FormularioPessoa extends Component {

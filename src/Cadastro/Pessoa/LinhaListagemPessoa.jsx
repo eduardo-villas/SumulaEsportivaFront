@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LinhaListagem from './../../Components/LinhaListagem';
+import LinhaListagem from './../../Components/LinhaListagem.jsx';
 import './Pessoa.css';
 
 class LinhaListagemPessoa extends Component {

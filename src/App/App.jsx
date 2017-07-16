@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import './App.css'
-import Menu from './../Menu/Menu'
+import Menu from './../Menu/Menu.jsx'
 import Home from './../Home/Home'
-import PessoaMain from './../Cadastro/Pessoa/PessoaMain';
-import ListagemEquipe from './../Cadastro/Equipe/ListagemEquipe';
-import ListagemModalidade from './../Cadastro/Modalidade/ListagemModalidade';
-import ListagemLiga from './../Cadastro/Liga/ListagemLiga';
-import ListagemCalendario from './../Cadastro/Calendario/ListagemCalendario';
-import ListagemPartida from './../Cadastro/Partida/ListagemPartida';
-import ListagemSumula from './../Cadastro/Sumula/ListagemSumula';
-import SorteioLiga from './../Operacao/Sorteio/SorteioLiga'
-import PreenchimentoSumula from './../Operacao/Sumula/PreenchimentoSumula'
-import RelatorioSumula from './../Relatorio/Sumula/RelatorioSumula'
-import RelatorioArtilheiro from './../Relatorio/Artilheiro/RelatorioArtilheiro'
-import RelatorioClassificacao from './../Relatorio/Classificacao/RelatorioClassificacao'
+import PessoaMain from './../Cadastro/Pessoa/PessoaMain.jsx';
+import ListagemEquipe from './../Cadastro/Equipe/ListagemEquipe.jsx';
+import MainModalidade from './../Cadastro/Modalidade/MainModalidade.jsx';
+import ListagemLiga from './../Cadastro/Liga/ListagemLiga.jsx';
+import ListagemCalendario from './../Cadastro/Calendario/ListagemCalendario.jsx';
+import ListagemPartida from './../Cadastro/Partida/ListagemPartida.jsx';
+import ListagemSumula from './../Cadastro/Sumula/ListagemSumula.jsx';
+import SorteioLiga from './../Operacao/Sorteio/SorteioLiga.jsx';
+import PreenchimentoSumula from './../Operacao/Sumula/PreenchimentoSumula.jsx';
+import RelatorioSumula from './../Relatorio/Sumula/RelatorioSumula.jsx';
+import RelatorioArtilheiro from './../Relatorio/Artilheiro/RelatorioArtilheiro.jsx';
+import RelatorioClassificacao from './../Relatorio/Classificacao/RelatorioClassificacao.jsx';
 
 class App extends Component {
 
@@ -36,7 +36,7 @@ class App extends Component {
 			case 'cadastro-equipe':
 				return <ListagemEquipe/>
 			case 'cadastro-modalidade':
-				return <ListagemModalidade/>
+				return <MainModalidade/>
 			case 'cadastro-liga':
 				return <ListagemLiga/>
 			case 'cadastro-calendario':

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HeaderListagem from './../../Components/HeaderListagem';
+import HeaderListagem from './../../Components/HeaderListagem.jsx';
 
 class HeaderPessoa extends Component {
 	render() {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Service from './PessoaService';
-import HeaderPessoa from './HeaderPessoa';
-import LinhaListagemPessoa from './LinhaListagemPessoa';
-import PaginationControl from './../../Components/PaginationControl';
-import GenericList from './../../Components/GenericList';
+import Service from './PessoaService.jsx';
+import HeaderPessoa from './HeaderPessoa.jsx';
+import LinhaListagemPessoa from './LinhaListagemPessoa.jsx';
+import PaginationControl from './../../Components/PaginationControl.jsx';
+import GenericList from './../../Components/GenericList.jsx';
 import './Pessoa.css'
 import { 
 	Button,

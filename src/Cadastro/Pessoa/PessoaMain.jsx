@@ -25,6 +25,7 @@ class PessoaMain extends Component {
 		return (
 			<div>
 				<h3>Cadastro de pessoas</h3>
+				<hr/>
 				{tela}
 			</div>
 		);

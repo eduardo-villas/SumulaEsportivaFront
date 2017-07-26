@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ListagemModalidade from './ListagemModalidade'
+import FormularioModalidade from './FormularioModalidade'
 
 class MainModalidade extends Component {
 	constructor(props) {
@@ -18,9 +19,13 @@ class MainModalidade extends Component {
 
 	render() {
 		let tela = <ListagemModalidade onTelaChange={this.onTelaChange}/>;
+		if (this.state.tela === 'formulario') {
+			tela = <FormularioModalidade onTelaChange={this.onTelaChange} id={this.state.id}/>;
+		}
 		return (
 			<div>
 				<h3>Cadastro de modalidade</h3>
+				<hr/>
 				{tela}
 			</div>
 		);

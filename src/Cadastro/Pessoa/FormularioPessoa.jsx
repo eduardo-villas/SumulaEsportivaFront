@@ -46,7 +46,7 @@ class FormularioPessoa extends Component {
 	save = () => {
 		if (this.cadastroValido()){
 			let service = new PessoaService();
-			service.post(this.state).then((teste) => {
+			service.post(this.state).then(() => {
 				this.props.onTelaChange('listagem');
 			});
 		}

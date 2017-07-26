@@ -6,7 +6,6 @@ import {
 	Button
 } from 'react-bootstrap';
 import Service from './ModalidadeService.jsx';
-import './Formulario.css';
 
 class FormularioModalidade extends Component {
 	constructor(props) {

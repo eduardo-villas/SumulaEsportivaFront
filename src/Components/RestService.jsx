@@ -48,6 +48,14 @@ class RestService {
 			}
 		);
 	}
+
+	findAll() {
+		return fetch(this.url + '?size=1000').then(
+			(response) => {
+				return response.json();
+			}
+		);
+	}
 }
 
 export default RestService;

@@ -8,6 +8,7 @@ import {
 } from 'react-bootstrap';
 import SexoToggle from './../../Components/SexoToggle.jsx';
 import PessoaService from './PessoaService.jsx';
+import EquipeService from './../Equipe/EquipeService';
 import './Pessoa.css';
 
 class FormularioPessoa extends Component {
@@ -21,12 +22,24 @@ class FormularioPessoa extends Component {
 			email: '',
 			telefone: '',
 			endereco: '',
-			emailValido: true
+			equipe: '',
+			emailValido: true,
+			equipes: []
 		};
 		if (props.id) {
 			let service = new PessoaService();
 			service.getById(props.id).then(this.setPessoa);
 		}
+		let equipeService = new EquipeService();
+		equipeService.findAll().then((allEquipes) => {
+			let equipes = allEquipes._embedded.equipe.map((equipe) => {
+				return {
+					nome: equipe.nome,
+					link: equipe._links.self.href
+				};
+			});
+			this.setState({ equipes: equipes });
+		});
 	}
 
 	setPessoa = (pessoa) => {
@@ -40,6 +53,11 @@ class FormularioPessoa extends Component {
 			telefone: pessoa.telefone,
 			endereco: pessoa.endereco,
 			emailValido: true
+		});
+		fetch(pessoa._links.equipe.href).then((response) => {
+			return response.json();
+		}).then((equipe) => {
+			this.setState({ equipe: equipe._links.self.href });
 		});
 	};
 
@@ -82,6 +100,10 @@ class FormularioPessoa extends Component {
 		if (!this.state.emailValido) {
 			emailInvalido = <HelpBlock>E-mail inválido</HelpBlock>
 		}
+		let equipes = this.state.equipes.map((equipe) => {
+			return <option key={equipe.link} value={equipe.link}>{equipe.nome}</option>;
+		});
+		equipes.unshift(<option key="" value=""></option>);
 		return (
 			<form>
 				<div className="row">
@@ -162,6 +184,20 @@ class FormularioPessoa extends Component {
 								value={this.state.endereco}
 								onChange={(endereco) => {this.setState({ endereco: endereco.target.value });}}
 							/>
+						</FormGroup>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-xs-12">
+						<FormGroup>
+							<ControlLabel>Equipe</ControlLabel>
+							<FormControl
+								componentClass="select"
+								value={this.state.equipe}
+								onChange={(equipe) => {this.setState({ equipe: equipe.target.value });}}
+							>
+								{equipes}
+							</FormControl>
 						</FormGroup>
 					</div>
 				</div>

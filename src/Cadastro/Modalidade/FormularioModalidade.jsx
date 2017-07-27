@@ -66,7 +66,7 @@ class FormularioModalidade extends Component {
 				<div className="row">
 					<div className="col-xs-12">
 						<FormGroup>
-							<ControlLabel>Descrição</ControlLabel>
+							<ControlLabel>Nome e modalidade do esporte</ControlLabel>
 							<FormControl
 								type="text"
 								value={this.state.descricao}

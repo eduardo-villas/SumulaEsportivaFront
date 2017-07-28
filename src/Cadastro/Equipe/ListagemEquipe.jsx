@@ -27,6 +27,14 @@ class ListagemEquipe extends Component {
 		});
 	};
 
+	goToForm = () => {
+		this.props.onTelaChange('formulario');
+	};
+
+	goToEditForm = () => {
+		this.props.onTelaChange('formulario', this.state.registrosSelecionados[0]);
+	};
+
 	onRegistroSelect = (id) => {
 		const equalsId = (selecionado) => {
 			return selecionado === id;

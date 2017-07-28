@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ListagemEquipe from './ListagemEquipe.jsx';
+import FormularioEquipe from './FormularioEquipe.jsx';
 
 class MainEquipe extends Component {
 	constructor(props) {
@@ -18,9 +19,9 @@ class MainEquipe extends Component {
 
 	render() {
 		let tela = <ListagemEquipe onTelaChange={this.onTelaChange}/>;
-		// if (this.state.tela === 'formulario') {
-		// 	tela = <FormularioPessoa onTelaChange={this.onTelaChange} id={this.state.id}/>;
-		// }
+		if (this.state.tela === 'formulario') {
+			tela = <FormularioEquipe onTelaChange={this.onTelaChange} id={this.state.id}/>;
+		}
 		return (
 			<div>
 				<h3>Cadastro de equipes</h3>

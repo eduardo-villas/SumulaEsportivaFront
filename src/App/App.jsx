@@ -3,7 +3,7 @@ import './App.css'
 import Menu from './../Menu/Menu.jsx'
 import Home from './../Home/Home'
 import PessoaMain from './../Cadastro/Pessoa/PessoaMain.jsx';
-import ListagemEquipe from './../Cadastro/Equipe/ListagemEquipe.jsx';
+import MainEquipe from './../Cadastro/Equipe/MainEquipe.jsx';
 import MainModalidade from './../Cadastro/Modalidade/MainModalidade.jsx';
 import ListagemLiga from './../Cadastro/Liga/ListagemLiga.jsx';
 import ListagemCalendario from './../Cadastro/Calendario/ListagemCalendario.jsx';
@@ -34,7 +34,7 @@ class App extends Component {
 			case 'cadastro-pessoa':
 				return <PessoaMain/>;
 			case 'cadastro-equipe':
-				return <ListagemEquipe/>
+				return <MainEquipe/>
 			case 'cadastro-modalidade':
 				return <MainModalidade/>
 			case 'cadastro-liga':

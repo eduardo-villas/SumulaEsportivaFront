@@ -56,6 +56,14 @@ class RestService {
 			}
 		);
 	}
+
+	getFromUrl(url) {
+		return fetch(url).then(
+			(response) => {
+				return response.json();
+			}
+		);
+	}
 }
 
 export default RestService;

@@ -7,6 +7,7 @@ import {
 	FormControl,
 	Button
 } from 'react-bootstrap';
+import './Equipe.css';
 
 class FormularioModalidade extends Component {
 	constructor(props) {
@@ -87,7 +88,7 @@ class FormularioModalidade extends Component {
 			let integrantes = this.state.integrantes.map((integrante) => {
 				let idade = this.calculaIdade(new Date(integrante.dataNascimento));
 				return (
-					<tr key={integrante.id}>
+					<tr key={integrante.id} className="background-white">
 						<td>{integrante.nome}</td>
 						<td>{idade}</td>
 						<td>{integrante.telefone}</td>
@@ -99,7 +100,7 @@ class FormularioModalidade extends Component {
 					<div className="row">
 						<div className="col-xs-12">
 							<ControlLabel>Integrantes</ControlLabel>
-							<table className="table table-striped table-hover table-bordered">
+							<table className="table table-striped table-bordered">
 								<thead>
 									<tr>
 										<th>Nome</th>
@@ -116,11 +117,8 @@ class FormularioModalidade extends Component {
 				);
 			} else {
 				if (this.state.buscaIntegrantesConcluida) {
-					const alignCenter = {
-						textAlign: "center"
-					};
 					tabelaIntegrantes = (
-						<h3 style={alignCenter}>Essa equipe ainda não possui integrantes.</h3>
+						<h3 className="center">Essa equipe ainda não possui integrantes.</h3>
 					);
 				}
 			}

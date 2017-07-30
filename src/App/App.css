@@ -5,3 +5,11 @@
 	margin-bottom: 100px;
 	padding-bottom: 8px;
 }
+
+.background-white {
+	background-color: #FFFFFF !important;
+}
+
+.centralized {
+	text-align: center;
+}

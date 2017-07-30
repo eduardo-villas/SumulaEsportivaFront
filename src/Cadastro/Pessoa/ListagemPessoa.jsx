@@ -64,6 +64,7 @@ class ListagemPessoa extends Component {
 	};
 
 	render() {
+		console.log('listangem pessoa')
 		let listagemRegistros = [];
 		if (this.state.registros._embedded){
 			listagemRegistros = this.state.registros._embedded.pessoa.map((pessoa) => {

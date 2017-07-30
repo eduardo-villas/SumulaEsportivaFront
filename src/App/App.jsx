@@ -3,9 +3,9 @@ import './App.css'
 import Menu from './../Menu/Menu.jsx'
 import Home from './../Home/Home'
 import PessoaMain from './../Cadastro/Pessoa/PessoaMain.jsx';
+import LigaMain from './../Cadastro/Liga/LigaMain.jsx';
 import MainEquipe from './../Cadastro/Equipe/MainEquipe.jsx';
 import MainModalidade from './../Cadastro/Modalidade/MainModalidade.jsx';
-import ListagemLiga from './../Cadastro/Liga/ListagemLiga.jsx';
 import ListagemCalendario from './../Cadastro/Calendario/ListagemCalendario.jsx';
 import ListagemPartida from './../Cadastro/Partida/ListagemPartida.jsx';
 import ListagemSumula from './../Cadastro/Sumula/ListagemSumula.jsx';
@@ -38,7 +38,7 @@ class App extends Component {
 			case 'cadastro-modalidade':
 				return <MainModalidade/>
 			case 'cadastro-liga':
-				return <ListagemLiga/>
+				return <LigaMain/>
 			case 'cadastro-calendario':
 				return <ListagemCalendario/>
 			case 'cadastro-partida':

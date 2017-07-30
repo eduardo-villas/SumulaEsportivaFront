@@ -57,6 +57,7 @@ class FormularioPessoa extends Component {
 		fetch(pessoa._links.equipe.href).then((response) => {
 			return response.json();
 		}).then((equipe) => {
+			console.log(equipe);
 			this.setState({ equipe: equipe._links.self.href });
 		});
 	};

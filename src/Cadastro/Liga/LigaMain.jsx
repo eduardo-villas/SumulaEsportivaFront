@@ -18,12 +18,10 @@ class LigaMain extends Component {
 	}
 
 	render() {
-		console.log('cadastro de ligas antes');
 		let tela = <ListagemLiga onTelaChange={this.onTelaChange}/>;
 		if (this.state.tela === 'formulario') {
 			tela = <FormularioLiga onTelaChange={this.onTelaChange} id={this.state.id}/>;
 		}
-		console.log('cadastro de ligas depois');
 		return (
 			<div>
 				<h3>Cadastro de ligas</h3>

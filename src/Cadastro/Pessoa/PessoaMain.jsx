@@ -18,12 +18,10 @@ class PessoaMain extends Component {
 	}
 
 	render() {
-		console.log('cadastro de pessoas antes');
 		let tela = <ListagemPessoa onTelaChange={this.onTelaChange}/>;
 		if (this.state.tela === 'formulario') {
 			tela = <FormularioPessoa onTelaChange={this.onTelaChange} id={this.state.id}/>;
 		}
-		console.log('cadastro de pessoas depois');
 		return (
 			<div>
 				<h3>Cadastro de pessoas</h3>

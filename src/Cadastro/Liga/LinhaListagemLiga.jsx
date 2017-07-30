@@ -16,7 +16,7 @@ class LinhaListagemLiga extends Component {
 		return (
 			<LinhaListagem onRegistroSelect={this.onRegistroSelect} onRegistroDeselect={this.onRegistroDeselect}>
 				<td>{this.props.liga.nome}</td>
-				<td>{this.props.liga.rg}</td>
+				<td>{this.props.liga.cabecaDeChave.nome}</td>
 			</LinhaListagem>
 		);
 	}

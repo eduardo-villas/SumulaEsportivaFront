@@ -6,7 +6,7 @@ class HeaderLiga extends Component {
 		return (
 			<HeaderListagem>
 				<th>Nome</th>
-				<th>RG</th>
+				<th>Cabeca de Chave</th>
 			</HeaderListagem>
 		);
 	}

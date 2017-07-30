@@ -24,10 +24,22 @@ class ListagemLiga extends Component {
 	}
 
 	setRegistros = (registros) => {
-		this.setState({
-			registros: registros,
-			registrosSelecionados: []
+		let self = this;
+		registros._embedded.liga.forEach(function(liga) {
+			
+			fetch(liga._links.cabecaDeChave.href).then((response) => {
+				return response.json();
+			}).then((cabecaDeChave) => {
+				liga['cabecaDeChave'] = cabecaDeChave;
+				self.setState({
+					registros: registros,
+					registrosSelecionados: []
+				});
+
+			});
+			
 		});
+
 	};
 
 	goToForm = () => {
@@ -66,11 +78,15 @@ class ListagemLiga extends Component {
 	};
 
 	render() {
-		console.log('listangem liga');
+		
 		let listagemRegistros = [];
-		if (this.state.registros._embedded){
+		if (this.state.registros._embedded) {
+			
 			listagemRegistros = this.state.registros._embedded.liga.map((liga) => {
-				return <LinhaListagemLiga key={liga.id} liga={liga} onRegistroSelect={this.onRegistroSelect} onRegistroDeselect={this.onRegistroDeselect}/>;
+				if (liga.cabecaDeChave)
+					return <LinhaListagemLiga key={liga.id} liga={liga} onRegistroSelect={this.onRegistroSelect} onRegistroDeselect={this.onRegistroDeselect}/>;
+				else
+					return;
 			});
 		}
 		let header = <HeaderLiga/>;

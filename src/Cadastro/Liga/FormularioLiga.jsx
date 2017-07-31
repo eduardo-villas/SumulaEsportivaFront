@@ -4,10 +4,7 @@ import {
 	ControlLabel,
 	FormControl,
 	Button
-	// ,
-	// HelpBlock
 } from 'react-bootstrap';
-// import SexoToggle from './../../Components/SexoToggle.jsx';
 import ModalidadeService from './../Modalidade/ModalidadeService';
 import LigaService from './LigaService.jsx';
 import EquipeService from './../Equipe/EquipeService';
@@ -57,21 +54,19 @@ class FormularioLiga extends Component {
 			id: liga.id,
 			nome: liga.nome,
 			cabecaDeChave: liga.cabecaDeChave,
-			data: liga.data,
-			horario: liga.horario
-			// dataNascimento: liga.dataNascimento,
-			// sexo: liga.sexo,
-			// email: liga.email,
-			// telefone: liga.telefone,
-			// endereco: liga.endereco,
-			// emailValido: true
+			data: liga.data
 		});
 
 		fetch(liga._links.cabecaDeChave.href).then((response) => {
 			return response.json();
 		}).then((cabecaDeChave) => {
-			console.log(cabecaDeChave);
 			this.setState({ cabecaDeChave: cabecaDeChave._links.self.href });
+		});
+
+		fetch(liga._links.modalidade.href).then((response) => {
+			return response.json();
+		}).then((modalidade) => {
+			this.setState({ modalidade: modalidade._links.self.href });
 		});
 	};
 
@@ -86,31 +81,15 @@ class FormularioLiga extends Component {
 
 	cadastroValido = () => {
 		let valido = true;
-		// if (!this.validaEmail(this.state.email)) {
-		// 	valido = false;
-		// 	// this.setState({ emailValido: false });
-		// }
 		return valido;
 	};
-
-	// validaEmail = (email) => {
-	// 	let emailPrefixoSufixo = email.split('@');
-	// 	if (emailPrefixoSufixo.length !== 2) {
-	// 		return false;
-	// 	}
-	// 	return emailPrefixoSufixo[0].length > 0 && emailPrefixoSufixo[1].length > 0;
-	// };
 
 	onChangeEmail = (email) => {
 		let textEmail = email.target.value;
 		this.setState({ email: textEmail });
-		// if (!this.state.emailValido && this.validaEmail(textEmail)) {
-		// 	this.setState({ emailValido: true });
-		// }
 	};
 
 	render() {
-
 		let equipes = this.state.equipes.map((cabecaDeChave) => {
 			return <option key={cabecaDeChave.link} value={cabecaDeChave.link}>{cabecaDeChave.nome}</option>;
 		});
@@ -152,7 +131,7 @@ class FormularioLiga extends Component {
 				<div className="row">
 					<div className="col-xs-12">
 						<FormGroup>
-							<ControlLabel>Cabeca de Chave</ControlLabel>
+							<ControlLabel>Cabeça de Chave</ControlLabel>
 							<FormControl
 								componentClass="select"
 								value={this.state.cabecaDeChave}
@@ -168,97 +147,13 @@ class FormularioLiga extends Component {
 						<FormGroup>
 							<ControlLabel>Data</ControlLabel>
 							<FormControl
-								type="date"
+								type="datetime-local"
 								value={this.state.data}
 								onChange={(data) => { this.setState({ data: data.target.value }); }}
 							/>
 						</FormGroup>
 					</div>
-					<div className="col-xs-12 col-sm-3">
-						<FormGroup>
-							<ControlLabel>Horario</ControlLabel>
-							<FormControl
-								type="horario"
-								value={this.state.horario}
-								onChange={(horario) => { this.setState({ horario: horario.target.value }); }}
-							/>
-						</FormGroup>
-					</div>
 				</div>
-				{/* <div className="row">
-					<div className="col-xs-12 col-sm-6">
-						<FormGroup>
-							<ControlLabel>RG</ControlLabel>
-							<FormControl
-								type="text"
-								value={this.state.rg}
-								onChange={(rg) => {this.setState({ rg: rg.target.value });}}
-							/>
-						</FormGroup>
-					</div>
-				</div> */}
-				{/* <div className="col-xs-12 col-sm-1">
-						<FormGroup>
-							<ControlLabel>Sexo</ControlLabel>
-							<div>
-								<SexoToggle
-									value={this.state.sexo}
-									onChange={(selected) => {this.setState({ sexo: selected ? 'M' : 'F' });	}}
-								/>
-							</div>
-						</FormGroup>
-					</div>
-				</div> */}
-				{/* <div className="row">
-					<div className="col-xs-12 col-sm-6">
-						<FormGroup validationState={this.state.emailValido ? null : 'error'}>
-							<ControlLabel>E-mail</ControlLabel>
-							<FormControl
-								type="email"
-								value={this.state.email}
-								onChange={this.onChangeEmail}
-							/>
-							{emailInvalido}
-							<FormControl.Feedback />
-						</FormGroup>
-					</div> */}
-				{/* <div className="col-xs-12 col-sm-6">
-						<FormGroup>
-							<ControlLabel>Telefone</ControlLabel>
-							<FormControl
-								type="tel"
-								value={this.state.telefone}
-								onChange={(telefone) => {this.setState({ telefone: telefone.target.value });}}
-							/>
-						</FormGroup>
-					</div> */}
-				{/* </div> */}
-				{/* <div className="row">
-					<div className="col-xs-12">
-						<FormGroup>
-							<ControlLabel>Endereço</ControlLabel>
-							<FormControl
-								type="text"
-								value={this.state.endereco}
-								onChange={(endereco) => {this.setState({ endereco: endereco.target.value });}}
-							/>
-						</FormGroup>
-					</div>
-				</div> */}
-				{/* <div className="row">
-					<div className="col-xs-12">
-						<FormGroup>
-							<ControlLabel>Equipe</ControlLabel>
-							<FormControl
-								componentClass="select"
-								value={this.state.equipe}
-								onChange={(equipe) => {this.setState({ equipe: equipe.target.value });}}
-							>
-								{equipes}
-							</FormControl>
-						</FormGroup>
-					</div>
-				</div> */}
 				<div className="row">
 					<div className="col-xs-12">
 						<div className="pull-right">

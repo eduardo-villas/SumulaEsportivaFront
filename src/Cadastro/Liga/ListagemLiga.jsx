@@ -82,12 +82,10 @@ class ListagemLiga extends Component {
 		let listagemRegistros = [];
 		if (this.state.registros._embedded) {
 			
-			listagemRegistros = this.state.registros._embedded.liga.map((liga) => {
-				if (liga.cabecaDeChave)
+			listagemRegistros = this.state.registros._embedded.liga.filter(liga => liga.cabecaDeChave)
+				.map((liga) => {
 					return <LinhaListagemLiga key={liga.id} liga={liga} onRegistroSelect={this.onRegistroSelect} onRegistroDeselect={this.onRegistroDeselect}/>;
-				else
-					return;
-			});
+				});
 		}
 		let header = <HeaderLiga/>;
 		return (

@@ -28,14 +28,6 @@ class ListagemPessoa extends Component {
 		});
 	};
 
-	goToForm = () => {
-		this.props.onTelaChange('formulario');
-	};
-
-	goToEditForm = () => {
-		this.props.onTelaChange('formulario', this.state.registrosSelecionados[0]);
-	};
-
 	onRegistroSelect = (id) => {
 		const equalsId = (selecionado) => {
 			return selecionado === id;
@@ -77,8 +69,8 @@ class ListagemPessoa extends Component {
 					<div className="col-xs-12">
 						<div className="pull-right">
 							<Button bsStyle="danger" className="btn-alterar" onClick={this.removerRegistros} disabled={this.state.registrosSelecionados.length !== 1}><Glyphicon glyph="trash" className="texted-right-icon"/>Remover</Button>
-							<Button bsStyle="info" className="btn-alterar" onClick={this.goToEditForm} disabled={this.state.registrosSelecionados.length !== 1}><Glyphicon glyph="pencil" className="texted-right-icon"/>Alterar</Button>
-							<Button bsStyle="primary" onClick={this.goToForm}><Glyphicon glyph="plus" className="texted-right-icon"/>Inserir</Button>
+							<Button bsStyle="info" className="btn-alterar" disabled={this.state.registrosSelecionados.length !== 1}><Glyphicon glyph="pencil" className="texted-right-icon"/>Alterar</Button>
+							<Button bsStyle="primary"><Glyphicon glyph="plus" className="texted-right-icon"/>Inserir</Button>
 						</div>
 					</div>
 				</div>

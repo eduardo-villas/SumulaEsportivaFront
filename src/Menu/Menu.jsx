@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { LinkContainer as Link } from 'react-router-bootstrap';
 import { 
 	Navbar,
 	Nav,
@@ -6,7 +7,6 @@ import {
 	MenuItem,
 	NavItem
 } from 'react-bootstrap';
-import './Menu.css'
 
 class Menu extends Component {
 
@@ -19,30 +19,30 @@ class Menu extends Component {
 			<Navbar inverse collapseOnSelect>
 				<Navbar.Header>
 					<Navbar.Brand>
-						<a onClick={this.onMenuSelect} id="home">Súmula App</a>
+						<Link to="/" id="home"><a>Súmula App</a></Link>
 					</Navbar.Brand>
 					<Navbar.Toggle />
 				</Navbar.Header>
 				<Navbar.Collapse>
 					<Nav>
 						<NavDropdown title="Cadastros" id="menu-cadastros">
-							<MenuItem onClick={this.onMenuSelect} id="cadastro-pessoa">Pessoa</MenuItem>
-							<MenuItem onClick={this.onMenuSelect} id="cadastro-equipe">Equipe</MenuItem>
-							<MenuItem onClick={this.onMenuSelect} id="cadastro-modalidade">Modalidade</MenuItem>
-							<MenuItem onClick={this.onMenuSelect} id="cadastro-liga">Liga</MenuItem>
-							<MenuItem onClick={this.onMenuSelect} id="cadastro-calendario">Calendário</MenuItem>
-							<MenuItem onClick={this.onMenuSelect} id="cadastro-partida">Partida</MenuItem>
+							<Link to="/pessoa"><MenuItem id="cadastro-pessoa">Pessoa</MenuItem></Link>
+							<Link to="/equipe"><MenuItem id="cadastro-equipe">Equipe</MenuItem></Link>
+							<Link to="/modalidade"><MenuItem id="cadastro-modalidade">Modalidade</MenuItem></Link>
+							<Link to="/liga"><MenuItem id="cadastro-liga">Liga</MenuItem></Link>
+							<Link to="/calendario"><MenuItem id="cadastro-calendario">Calendário</MenuItem></Link>
+							<Link to="/partida"><MenuItem id="cadastro-partida">Partida</MenuItem></Link>
 							<MenuItem divider />
-							<MenuItem onClick={this.onMenuSelect} id="cadastro-sumula">Súmula</MenuItem>
+							<Link to="/sumula"><MenuItem id="cadastro-sumula">Súmula</MenuItem></Link>
 						</NavDropdown>
 						<NavDropdown title="Operações" id="menu-operacoes">
-							<MenuItem onClick={this.onMenuSelect} id="operacao-sorteio">Sorteio Liga</MenuItem>
-							<MenuItem onClick={this.onMenuSelect} id="operacao-sumula">Preencher Súmula</MenuItem>
+							<Link to="/sorteio"><MenuItem id="operacao-sorteio">Sorteio Liga</MenuItem></Link>
+							<Link to="/preenchimento-sumula"><MenuItem id="operacao-sumula">Preencher Súmula</MenuItem></Link>
 						</NavDropdown>
 						<NavDropdown title="Relatórios" id="menu-relatorios">
-							<MenuItem onClick={this.onMenuSelect} id="relatorio-sumula">Súmula</MenuItem>
-							<MenuItem onClick={this.onMenuSelect} id="relatorio-artilheiro">Artilheiro</MenuItem>
-							<MenuItem onClick={this.onMenuSelect} id="relatorio-tabela">Tabela de Classificação</MenuItem>
+							<Link to="/relatorio-sumula"><MenuItem id="relatorio-sumula">Súmula</MenuItem></Link>
+							<Link to="/relatorio-artilheiro"><MenuItem id="relatorio-artilheiro">Artilheiro</MenuItem></Link>
+							<Link to="/relatorio-classificacao"><MenuItem id="relatorio-tabela">Tabela de Classificação</MenuItem></Link>
 						</NavDropdown>
 					</Nav>
 					<Nav pullRight>

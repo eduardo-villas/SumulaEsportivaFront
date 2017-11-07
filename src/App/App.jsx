@@ -19,28 +19,26 @@ import RelatorioClassificacao from './../Relatorio/Classificacao/RelatorioClassi
 class App extends Component {
 	render() {
 		return (
-			<div>
-				<Menu/>
-				<div className="container main-container">
-					<Router>
-						<div>
-							<Route exact path="/" component={Home}></Route>
-							<Route path="/pessoa" component={Pessoa}></Route>
-							<Route path="/liga" component={Liga}></Route>
-							<Route path="/equipe" component={Equipe}></Route>
-							<Route path="/modalidade" component={Modalidade}></Route>
-							<Route path="/calendario" component={Calendario}></Route>
-							<Route path="/partida" component={Partida}></Route>
-							<Route path="/sumula" component={Sumula}></Route>
-							<Route path="/sorteio" component={Sorteio}></Route>
-							<Route path="/preenchimento-sumula" component={PreenchimentoSumula}></Route>
-							<Route path="/relatorio-sumula" component={RelatorioSumula}></Route>
-							<Route path="/relatorio-artilheiro" component={RelatorioArtilheiro}></Route>
-							<Route path="/relatorio-classificacao" component={RelatorioClassificacao}></Route>
-						</div>
-					</Router>
+			<Router>
+				<div>
+					<Menu/>
+					<div className="container main-container">
+						<Route exact path="/" component={Home}></Route>
+						<Route path="/pessoa" component={Pessoa}></Route>
+						<Route path="/liga" component={Liga}></Route>
+						<Route path="/equipe" component={Equipe}></Route>
+						<Route path="/modalidade" component={Modalidade}></Route>
+						<Route path="/calendario" component={Calendario}></Route>
+						<Route path="/partida" component={Partida}></Route>
+						<Route path="/sumula" component={Sumula}></Route>
+						<Route path="/sorteio" component={Sorteio}></Route>
+						<Route path="/preenchimento-sumula" component={PreenchimentoSumula}></Route>
+						<Route path="/relatorio-sumula" component={RelatorioSumula}></Route>
+						<Route path="/relatorio-artilheiro" component={RelatorioArtilheiro}></Route>
+						<Route path="/relatorio-classificacao" component={RelatorioClassificacao}></Route>
+					</div>
 				</div>
-			</div>
+			</Router>
 		);
 	}
 }

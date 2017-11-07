@@ -1,72 +1,44 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css'
 import Menu from './../Menu/Menu.jsx'
 import Home from './../Home/Home'
-import PessoaMain from './../Cadastro/Pessoa/PessoaMain.jsx';
-import LigaMain from './../Cadastro/Liga/LigaMain.jsx';
-import MainEquipe from './../Cadastro/Equipe/MainEquipe.jsx';
-import MainModalidade from './../Cadastro/Modalidade/MainModalidade.jsx';
-import ListagemCalendario from './../Cadastro/Calendario/ListagemCalendario.jsx';
-import ListagemPartida from './../Cadastro/Partida/ListagemPartida.jsx';
-import ListagemSumula from './../Cadastro/Sumula/ListagemSumula.jsx';
-import SorteioLiga from './../Operacao/Sorteio/SorteioLiga.jsx';
+import Pessoa from './../Cadastro/Pessoa/PessoaMain.jsx';
+import Liga from './../Cadastro/Liga/LigaMain.jsx';
+import Equipe from './../Cadastro/Equipe/MainEquipe.jsx';
+import Modalidade from './../Cadastro/Modalidade/MainModalidade.jsx';
+import Calendario from './../Cadastro/Calendario/ListagemCalendario.jsx';
+import Partida from './../Cadastro/Partida/ListagemPartida.jsx';
+import Sumula from './../Cadastro/Sumula/ListagemSumula.jsx';
+import Sorteio from './../Operacao/Sorteio/SorteioLiga.jsx';
 import PreenchimentoSumula from './../Operacao/Sumula/PreenchimentoSumula.jsx';
 import RelatorioSumula from './../Relatorio/Sumula/RelatorioSumula.jsx';
 import RelatorioArtilheiro from './../Relatorio/Artilheiro/RelatorioArtilheiro.jsx';
 import RelatorioClassificacao from './../Relatorio/Classificacao/RelatorioClassificacao.jsx';
 
 class App extends Component {
-
-	constructor(props) {
-		super(props);
-		this.state = {
-			selectedMenu: 'home'
-		};
-	}
-
-	onSelectMenu = (menu) => {
-		this.setState({ selectedMenu: menu });
-	};
-
-	getTelaByMenuSelecionado = () => {
-		const selectedMenu = this.state.selectedMenu;
-		switch (selectedMenu) {
-			case 'cadastro-pessoa':
-				return <PessoaMain/>;
-			case 'cadastro-equipe':
-				return <MainEquipe/>
-			case 'cadastro-modalidade':
-				return <MainModalidade/>
-			case 'cadastro-liga':
-				return <LigaMain/>
-			case 'cadastro-calendario':
-				return <ListagemCalendario/>
-			case 'cadastro-partida':
-				return <ListagemPartida/>
-			case 'cadastro-sumula':
-				return <ListagemSumula/>
-			case 'operacao-sorteio':
-				return <SorteioLiga/>
-			case 'operacao-sumula':
-				return <PreenchimentoSumula/>
-			case 'relatorio-sumula':
-				return <RelatorioSumula/>;
-			case 'relatorio-artilheiro':
-				return <RelatorioArtilheiro/>;
-			case 'relatorio-tabela':
-				return <RelatorioClassificacao/>;
-			default:
-				return <Home/>
-		}
-	};
-
 	render() {
-		let currentMenu = this.getTelaByMenuSelecionado();
 		return (
 			<div>
-				<Menu onSelectMenu={this.onSelectMenu}/>
+				<Menu/>
 				<div className="container main-container">
-					{currentMenu}
+					<Router>
+						<div>
+							<Route exact path="/" component={Home}></Route>
+							<Route path="/pessoa" component={Pessoa}></Route>
+							<Route path="/liga" component={Liga}></Route>
+							<Route path="/equipe" component={Equipe}></Route>
+							<Route path="/modalidade" component={Modalidade}></Route>
+							<Route path="/calendario" component={Calendario}></Route>
+							<Route path="/partida" component={Partida}></Route>
+							<Route path="/sumula" component={Sumula}></Route>
+							<Route path="/sorteio" component={Sorteio}></Route>
+							<Route path="/preenchimento-sumula" component={PreenchimentoSumula}></Route>
+							<Route path="/relatorio-sumula" component={RelatorioSumula}></Route>
+							<Route path="/relatorio-artilheiro" component={RelatorioArtilheiro}></Route>
+							<Route path="/relatorio-classificacao" component={RelatorioClassificacao}></Route>
+						</div>
+					</Router>
 				</div>
 			</div>
 		);
